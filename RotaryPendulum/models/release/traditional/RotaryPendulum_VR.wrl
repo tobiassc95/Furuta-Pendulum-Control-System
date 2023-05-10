@@ -1,0 +1,113 @@
+#VRML V2.0 utf8
+# Created with V-Realm Builder v2.0
+# Integrated Data Systems Inc.
+# www.ids-net.com
+# Copyright 2015 The MathWorks, Inc.
+
+DEF NFrame Transform {
+  translation 0 -1.5 0
+  children [
+    DEF Support Transform {
+      children Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0.4 0.4 0.4
+          }
+        }
+        geometry Cylinder {
+          radius 0.2
+        }
+      }
+    }
+    DEF Base Transform {
+      translation 0 -1 0
+      children Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0.4 0.4 0.4
+          }
+        }
+        geometry Cylinder {
+          height 0.2
+        }
+      }
+    }
+    DEF BFrame Transform {
+      rotation 0 1 0 0
+      children [
+        DEF Arm Transform {
+          translation 0 1.25 1.2
+          rotation 0 1 0 0
+          center 0 0 -1.2
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  specularColor 0.11 0.11 0.11
+                  diffuseColor 0.81 0 0
+                }
+              }
+              geometry Box {
+                size 0.5 0.5 3
+              }
+            }
+            DEF Pin Transform {
+              translation 0 0 0.925
+              rotation 1 0 0 1.5708
+              children Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0.02 0.02 0.02
+                    diffuseColor 0.16 0.16 0.16
+                  }
+                }
+                geometry Cylinder {
+                  radius 0.05
+                }
+              }
+            }
+          ]
+        }
+        DEF EFrame Transform {
+          translation 0 1.2 1.2
+          rotation 0 0 1 0.6
+          children DEF Pendulum Transform {
+            translation 0 1.35 1.7
+            children Shape {
+              appearance Appearance {
+                material Material {
+                  specularColor 0.16 0.16 0.16
+                  diffuseColor 0.81 0 0
+                }
+              }
+              geometry Box {
+                size 0.4 3 0.4
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+DEF VP2 Viewpoint {
+  description "VP2"
+  position -3.67547 0.618937 9.27943
+  orientation -0.16078 -0.986611 -0.0273455 0.382085
+}
+Background {
+  skyColor [
+    1 1 1,
+    1 1 1,
+    1 1 1,
+    1 1 1 
+  ]
+  skyAngle [0.1, 1.2, 1.57]
+  groundColor [
+    1 1 1,
+    1 1 1,
+    1 1 1,
+    1 1 1 
+  ]
+  groundAngle [0.9, 1.5, 1.57]
+}
